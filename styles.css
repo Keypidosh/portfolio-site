@@ -1,6 +1,6 @@
 :root {
     --my-purple: #583F99; /* Main purple color */
-    --my-gray: #828282;
+    --my-gray: #707070;
 }
 
 /* General Reset */
@@ -241,13 +241,52 @@ nav ul li a.active {
     margin-right: auto;
 }
 
+.presentation-page-ground-digger {
+    margin-top: 20px;
+    width: 28%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.presentation-page-bil-fubo {
+    margin-top: 20px;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.presentation-page-home-of-homies {
+    margin-top: 20px;
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
 .presentation-item {
     max-width: 100%; /* Ensures the image doesn't overflow */
     height: auto; /* Maintains aspect ratio */
     padding-bottom: 20px;
 }
 
+.presentation-page-text {
+    line-height: 1.5;
+    text-align: center;
+}
+
 .presentation-page-date {
+    text-align: center;
     padding-top: 10px;
     padding-bottom: 30px;
     color: var(--my-gray);
@@ -256,6 +295,15 @@ nav ul li a.active {
 /* Presentation Page Mobile view */
 @media (max-aspect-ratio: 10/16) {
     .presentation-page {
+        width: 95%;
+    }
+    .presentation-page-ground-digger {
+        width: 95%;
+    }
+    .presentation-page-bil-fubo {
+        width: 95%;
+    }
+    .presentation-page-home-of-homies {
         width: 95%;
     }
 }
@@ -404,7 +452,7 @@ nav ul li a.active {
 /* Footer */
 footer {
     text-align: center;
-    color: #828282;
+    color: var(--my-gray);
     padding: 50px;
     font-size: 16px;
     background-color: transparent
