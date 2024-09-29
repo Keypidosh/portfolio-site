@@ -241,39 +241,6 @@ nav ul li a.active {
     margin-right: auto;
 }
 
-.presentation-page-ground-digger {
-    margin-top: 20px;
-    width: 28%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    margin-left: auto; 
-    margin-right: auto;
-}
-
-.presentation-page-bil-fubo {
-    margin-top: 20px;
-    width: 75%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    margin-left: auto; 
-    margin-right: auto;
-}
-
-.presentation-page-home-of-homies {
-    margin-top: 20px;
-    width: 65%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    margin-left: auto; 
-    margin-right: auto;
-}
-
 .presentation-item {
     max-width: 100%; /* Ensures the image doesn't overflow */
     height: auto; /* Maintains aspect ratio */
@@ -295,16 +262,7 @@ nav ul li a.active {
 /* Presentation Page Mobile view */
 @media (max-aspect-ratio: 10/16) {
     .presentation-page {
-        width: 95%;
-    }
-    .presentation-page-ground-digger {
-        width: 95%;
-    }
-    .presentation-page-bil-fubo {
-        width: 95%;
-    }
-    .presentation-page-home-of-homies {
-        width: 95%;
+        width: 95% !important;
     }
 }
 
