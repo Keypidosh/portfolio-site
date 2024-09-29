@@ -11,8 +11,10 @@
 }
 
 body {
+    padding-top: 50px; /* for the fixed header height */
     position: relative;
     font-family: Helvetica, sans-serif;
+    background-color: rgb(247, 247, 247);
 }
 
 .main-page {
@@ -59,8 +61,10 @@ body {
     align-items: center;
     padding: 10px 5%;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
     background-color: white;
     z-index: 1000;
     height: 50px;
@@ -221,20 +225,19 @@ nav ul li a.active {
 /* Work presentation pages */
 .presentation-page {
     margin-top: 20px;
-    width: 50%; /* May be overriden by HTML style: */
+    width: 50%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     text-align: center;
-   /* Centers the container itself */
-    margin-left: auto; 
+    margin-left: auto;
     margin-right: auto;
 }
 
 .presentation-item {
-    max-width: 100%; /* Ensures the image doesn't overflow */
-    height: auto; /* Maintains aspect ratio */
-    padding-bottom: 20px;
+    max-width: 100%;
+    height: auto;
+    padding-bottom: 30px;
 }
 
 .presentation-page-text {
@@ -245,16 +248,36 @@ nav ul li a.active {
 .presentation-page-date {
     text-align: center;
     padding-top: 10px;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
     color: var(--my-gray);
+}
+
+/* Aspect Ratio Container for Responsive Video */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 
 /* Presentation Page Mobile view */
 @media (max-aspect-ratio: 10/16) {
     .presentation-page {
-        width: 95% !important; /* !important to override the overrides*/
+        width: 95% !important;
     }
 }
+
 
 /* About section */
 .about-content {
