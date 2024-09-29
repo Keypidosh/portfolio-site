@@ -31,17 +31,18 @@ body {
     z-index: -1;
 }
 
-/* to remove the bg when needed */
 .no-bg-main-page {
     background-image: none;
 }
 
+/* Background Mobile */
 @media (max-aspect-ratio: 10/16) {
     .main-page {
         background-size: 200% auto;
     }
 }
 
+/* Fade in on load (JS) */
 .content {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
@@ -117,17 +118,6 @@ nav ul li a.active {
 
 .social-icons a:hover svg path {
     fill: var(--my-purple);
-}
-
-.hamburger {
-    display: none;
-}
-
-.hamburger .line {
-    width: 25px;
-    height: 3px;
-    background-color: black;
-    margin: 4px 0;
 }
 
 /* Header Mobile view */
@@ -231,7 +221,7 @@ nav ul li a.active {
 /* Work presentation pages */
 .presentation-page {
     margin-top: 20px;
-    width: 50%;
+    width: 50%; /* May be overriden by HTML style: */
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -262,7 +252,7 @@ nav ul li a.active {
 /* Presentation Page Mobile view */
 @media (max-aspect-ratio: 10/16) {
     .presentation-page {
-        width: 95% !important;
+        width: 95% !important; /* !important to override the overrides*/
     }
 }
 
