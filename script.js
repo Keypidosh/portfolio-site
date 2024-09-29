@@ -13,3 +13,28 @@ function showContent(index) {
 window.onload = function() {
     showContent(0)
 };
+
+document.addEventListener("DOMContentLoaded", function () {
+  const links = document.querySelectorAll("a"); // Select all anchor links
+
+  links.forEach(link => {
+    // Check if the link is an internal link (same domain)
+    if (link.hostname === window.location.hostname && link.getAttribute("href") !== "#") {
+      link.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent immediate navigation
+        const href = this.href; // Store the URL
+
+        // Select all elements with the class "content" and add the fade-out class
+        contentSections.forEach(section => {
+          section.classList.remove('fade-out')
+          section.classList.add("fade-out");
+        });
+
+        // Navigate to the new page after the fade-out
+        setTimeout(function () {
+          window.location.href = href;
+        }, 250); // Duration should match the CSS transition
+      });
+    }
+  });
+});
