@@ -1,5 +1,5 @@
-// Fade in the HTML files when loaded
 const contentSections = document.querySelectorAll('.content'); // Get all the main content of the site
+const links = document.querySelectorAll("a");
 
 function showContent(index) {
   contentSections.forEach((section, i) => {
@@ -15,8 +15,6 @@ window.onload = function() {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-  const links = document.querySelectorAll("a"); // Select all anchor links
-
   links.forEach(link => {
     // Check if the link is an internal link (same domain)
     if (link.hostname === window.location.hostname && link.getAttribute("href") !== "#") {
