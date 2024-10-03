@@ -239,6 +239,19 @@ nav ul li a.active {
     margin-right: auto;
 }
 
+.presentation-page.horizontal {
+    flex-direction: row;
+    gap: 100px;
+}
+
+/* Portfolio Grid Mobile view */
+@media (max-aspect-ratio: 10/16) {
+    .presentation-page.horizontal {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
 .presentation-item {
     max-width: 100%;
     height: auto;
