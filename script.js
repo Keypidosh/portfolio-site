@@ -10,9 +10,20 @@ function showContent(index) {
   });
 }
 
+// Play fade in animation on load
 window.onload = function() {
-    showContent(0)
+    showContent(0);
 };
+
+// Handle page restoration from bfcache
+window.addEventListener("pageshow", function (event) {
+  if (event.persisted) {
+    contentSections.forEach(section => {
+      section.classList.remove('fade-out');
+      section.classList.add('active'); // Re-apply fade-in if coming from bfcache
+    });
+  }
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   links.forEach(link => {
@@ -24,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Select all elements with the class "content" and add the fade-out class
         contentSections.forEach(section => {
-          section.classList.remove('fade-out')
+          section.classList.remove('fade-out');
           section.classList.add("fade-out");
         });
 

@@ -29,12 +29,7 @@ body {
     background-repeat: no-repeat;
     background-size: 100% auto;
     opacity: 1;
-    transition: opacity 0.2s ease;
     z-index: -1;
-}
-
-.no-bg-main-page {
-    background-image: none;
 }
 
 /* Background Mobile */
@@ -244,14 +239,6 @@ nav ul li a.active {
     gap: 100px;
 }
 
-/* Portfolio Grid Mobile view */
-@media (max-aspect-ratio: 10/16) {
-    .presentation-page.horizontal {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-
 .presentation-item {
     max-width: 100%;
     height: auto;
@@ -275,8 +262,11 @@ nav ul li a.active {
     .presentation-page {
         width: 95% !important;
     }
+    .presentation-page.horizontal {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
-
 
 /* About section */
 .about-content {
