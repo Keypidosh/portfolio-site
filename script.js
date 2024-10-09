@@ -47,3 +47,51 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+//ALSO UNCOMMENT IN CSS: .portfolio-item { display: none;
+// Main page filters
+filterSelection("all");
+
+function filterSelection(c) {
+    var items, i;
+    items = document.getElementsByClassName("portfolio-item");
+
+    if (c === "all") c = ""; // Show all if 'all' is selected
+    // Loop through all items, and filter based on class match
+    for (i = 0; i < items.length; i++) {
+        removeClass(items[i], "show"); // Remove the show class first
+        if (items[i].className.indexOf(c) > -1) {
+            addClass(items[i], "show"); // Add the show class if it matches the filter
+        }
+    }
+}
+
+// Function to add a class
+function addClass(element, name) {
+    if (element.className.indexOf(name) == -1) {
+        element.className += " " + name;
+    }
+}
+
+// Function to remove a class
+function removeClass(element, name) {
+    var arr = element.className.split(" ");
+    while (arr.indexOf(name) > -1) {
+        arr.splice(arr.indexOf(name), 1);
+    }
+    element.className = arr.join(" ");
+}
+
+// Handling active filter buttons
+var btnContainer = document.getElementById("filterButtonContainer");
+var btns = btnContainer.getElementsByClassName("filter-button");
+
+for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("filter-active");
+        if (current.length > 0) {
+            current[0].classList.remove("filter-active");
+        }
+        this.classList.add("filter-active");
+    });
+}

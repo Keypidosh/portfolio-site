@@ -32,10 +32,24 @@ body {
     z-index: -1;
 }
 
+/* BG slightly narrow view */
+@media (max-aspect-ratio: 16/11) {
+    .main-page {
+        background-size: 125% auto;
+    }
+}
+
+/* BG Tablet view */
+@media (max-aspect-ratio: 4/5) {
+    .main-page {
+        background-size: 180% auto;
+    }
+}
+
 /* Background Mobile */
 @media (max-aspect-ratio: 10/16) {
     .main-page {
-        background-size: 200% auto;
+        background-size: 235% auto;
     }
 }
 
@@ -163,8 +177,14 @@ nav ul li a.active {
     padding-right: 5%;
 }
 
+.filter-button-container {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 50px;
+}
+
 .filter-button {
-    font-family: "Asap", sans-serif;
+    font-family: "Asap", sans-serif; /* I don t know why but it does not get the font without this :/ */
     margin-bottom: 30px;
     margin-right: 10px;
     padding: 10px 20px;
@@ -175,7 +195,7 @@ nav ul li a.active {
     background-color: transparent;
     color: black;
     border: 1px solid black;
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, padding 0.2s ease;
 }
 
 .filter-active {
@@ -193,6 +213,20 @@ nav ul li a.active {
     font-weight: bold;
 }
 
+.show { /* For filtered elements */
+    display: block !important;
+  }
+  
+  /* Filter Buttons Mobile View */
+@media (max-aspect-ratio: 10/16) {
+    .filter-button-container {
+        margin-top: 30px;
+    }
+    .filter-button {
+        margin-bottom: 40px;
+    }
+}
+
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -200,6 +234,7 @@ nav ul li a.active {
 }
 
 .portfolio-item {
+    display: none; /* UNCOMMENT FOR FILTERS*/
     position: relative;
     aspect-ratio: 4 / 3;
     border-radius: 5px;
@@ -240,6 +275,13 @@ nav ul li a.active {
     color: rgb(210, 210, 210);
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+/* Portfolio Grid Tablet view */
+@media (max-aspect-ratio: 4/5) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* Portfolio Grid Mobile view */
