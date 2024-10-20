@@ -1,6 +1,7 @@
 const contentSections = document.querySelectorAll('.content'); // Get all the main content of the site
 const links = document.querySelectorAll("a");
 
+// Play fade in animation on page load
 function showContent(index) {
   contentSections.forEach((section, i) => {
     section.classList.remove('active');
@@ -9,13 +10,11 @@ function showContent(index) {
     }
   });
 }
-
-// Play fade in animation on load
 window.onload = function() {
     showContent(0);
 };
 
-// Handle page restoration from bfcache
+// Handle page restoration from bfcache (browser back button)
 window.addEventListener("pageshow", function (event) {
   if (event.persisted) {
     contentSections.forEach(section => {
@@ -25,6 +24,8 @@ window.addEventListener("pageshow", function (event) {
   }
 });
 
+
+// Content fades out first when navigating
 document.addEventListener("DOMContentLoaded", function () {
   links.forEach(link => {
     // Check if the link is an internal link (same domain)
@@ -48,8 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-//ALSO UNCOMMENT IN CSS: .portfolio-item { display: none;
-// Main page filters
+// Portfolio grid page filters
+// CSS: .portfolio-item display: none; hides all the items by defalut
 filterSelection("all");
 
 function filterSelection(c) {
