@@ -12,7 +12,10 @@
 
 @font-face {
     font-family: "asap";
-    src: url('fonts/asap-variable.ttf') format('truetype');
+    src: url('fonts/asap-variable.woff2') format('woff2'),
+         url('fonts/asap-variable.woff') format('woff'),
+         url('fonts/asap-variable.ttf') format('truetype');
+    font-display: swap;
 }
 
 body {
