@@ -12,9 +12,7 @@
 
 @font-face {
     font-family: "asap";
-    src: url('fonts/asap-variable.woff2') format('woff2'),
-         url('fonts/asap-variable.woff') format('woff'),
-         url('fonts/asap-variable.ttf') format('truetype');
+    src: url('fonts/rubik-variable.ttf') format('truetype');
     font-display: swap;
 }
 
@@ -128,7 +126,7 @@ nav ul li a.active {
 
 /* H1 for Accesibility */
 .name h1 {
-    font-size: 1.25rem /* Use rem so the user can enlarge texts using browser settings */
+    font-size: 1.15rem /* Use rem so the user can enlarge texts using browser settings */
 }
 
 /* Social icon styling */
