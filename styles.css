@@ -11,14 +11,16 @@
 }
 
 @font-face {
-    font-family: "asap";
-    src: url('fonts/rubik-variable.ttf') format('truetype');
+    font-family: "rubik";
+    src: url('fonts/Figtree-Variable.woff2') format('woff2'),
+        url('fonts/Figtree-Variable.woff') format('woff'),
+        url('fonts/Figtree-Variable.ttf') format('ttf');
     font-display: swap;
 }
 
 body {
     padding-top: 50px; /* for the fixed header height */
-    font-family: "asap", sans-serif;
+    font-family: "rubik", sans-serif;
     position: relative;
     background-color: rgb(247, 247, 247);
 }
@@ -187,11 +189,11 @@ nav ul li a.active {
     margin: 0 auto;
     text-align: center;
     margin-top: 50px;
+    margin-bottom: 30px;
 }
 
 .filter-button {
     font-family: inherit; /* I don t know why but it does not get the font without this :/ */
-    margin-bottom: 30px;
     margin-right: 10px;
     padding: 10px 20px;
     text-align: center;
