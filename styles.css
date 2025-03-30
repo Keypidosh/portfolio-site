@@ -11,7 +11,7 @@
 }
 
 @font-face {
-    font-family: "rubik";
+    font-family: "figtree";
     src: url('fonts/Figtree-Variable.woff2') format('woff2'),
         url('fonts/Figtree-Variable.woff') format('woff'),
         url('fonts/Figtree-Variable.ttf') format('ttf');
@@ -20,7 +20,7 @@
 
 body {
     padding-top: 50px; /* for the fixed header height */
-    font-family: "rubik", sans-serif;
+    font-family: "figtree", sans-serif;
     position: relative;
     background-color: rgb(247, 247, 247);
 }
@@ -356,8 +356,6 @@ nav ul li a.active {
 /* About section */
 .about-content {
     text-align: center;
-    margin: 70px auto 0 auto;
-    max-width: 950px;
     padding-left: 5%; /* For mobile scaling */
     padding-right: 5%;
 }
