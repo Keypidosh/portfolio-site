@@ -356,6 +356,8 @@ nav ul li a.active {
 /* About section */
 .about-content {
     text-align: center;
+    margin: 70px auto 0 auto;
+    max-width: 950px;
     padding-left: 5%; /* For mobile scaling */
     padding-right: 5%;
 }
