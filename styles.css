@@ -218,7 +218,6 @@ nav ul li a.active {
 .filter-button:hover {
     color: white;
     background-color: black;
-    font-weight: bold;
 }
 
 .show { /* For filtered elements */
