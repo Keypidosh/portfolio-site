@@ -164,16 +164,21 @@ nav ul li a.active {
 
     nav ul {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         padding: 0;
         margin: 0;
         list-style: none;
-        gap: 70px
+        gap: 0px;
+    }
+    
+    nav ul li {
+        flex: 1;
+        text-align: center;
     }
 
     nav ul li a {
         font-size: 18px;
-        padding: 10px 15px;
+        padding: 0px 0px;
         display: block;
     }
 }
@@ -374,14 +379,33 @@ nav ul li a.active {
     font-weight: bold;
 }
 
-/* Work experience formatting */
-.about-content h2 {
+/* Title formatting */
+.about-title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+.about-title-container h2 {
     color: var(--my-purple);
-    margin-top: 40px;
-    line-height: 2;
+    margin: 0;
+    line-height: 1.2;
     font-weight: bold;
 }
 
+.title-icon {
+    display: flex;
+    align-items: center;
+}
+
+.title-icon svg {
+    fill: var(--my-purple);
+}
+
+/* About formatting */
 .about-content p {
     margin: 5px 0;
     line-height: 1.5;
