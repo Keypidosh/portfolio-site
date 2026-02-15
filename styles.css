@@ -81,7 +81,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 6%;
+    padding: 10px 7%;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
@@ -186,8 +186,8 @@ nav ul li a.active {
 /* Portfolio Grid Section */
 #portfolio {
     padding-top: 60px;
-    padding-left: 6%;
-    padding-right: 6%;
+    padding-left: 7%;
+    padding-right: 7%;
 }
 
 .filter-button-container {
