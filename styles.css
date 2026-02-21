@@ -131,6 +131,11 @@ nav ul li a.active {
     font-size: 1.15rem /* Use rem so the user can enlarge texts using browser settings */
 }
 
+.name p {
+    font-size: 1.15rem;
+    font-weight: bold;
+}
+
 /* Social icon styling */
 .social-icons a {
     margin-left: 10px;
