@@ -12,6 +12,7 @@
     <meta name="copyright" content="&copy; 2020-2026. Batuhan Dikmen. All rights reserved.">
     <meta name="description" content="Portfolio of Batuhan Dikmen, a graphic artist, designer and researcher focusing on video games, illustration, UI, concept art, and animation.">
     <meta name="author" content="Batuhan Dikmen">
+    <link rel="canonical" href="https://batuhandikmen.art/">
 
     <!-- Schema Markup -->
     <script type="application/ld+json">
@@ -69,7 +70,7 @@
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <img src="images/profile-image.webp" alt="Batuhan Dikmen profile image" width="150px">
+                        <img src="images/profile-image.webp" alt="Batuhan Dikmen profile image" width="150px" fetchpriority="high">
                     </div>
                     <div class="flip-card-back">
                         <img src="images/profile-image-2.webp" alt="Batuhan Dikmen profile image" width="150px">
@@ -96,7 +97,10 @@
             <!-- Work Item -->
             <div class="portfolio-item illustration" id="hoqqa">
                 <a href="https://solitude-studios.itch.io/hoqqa" target="_blank">
-                <img src="images/hoqqa_cover.webp" alt="Hoqqa 2D platformer game cover image" loading="eager">
+                <img src="images/hoqqa-cover.webp"
+                srcset="images/hoqqa-cover-small.webp 400w, images/hoqqa-cover.webp 600w"
+                sizes="(max-width: 600px) 400px, 600px"
+                alt="Hoqqa 2D platformer game cover image" loading="eager" fetchpriority="high">
                 <div class="overlay">
                     <div class="text">
                         <h2>Hoqqa</h2>
