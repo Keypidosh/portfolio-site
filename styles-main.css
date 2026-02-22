@@ -391,6 +391,11 @@ nav ul li a.active {
     color: var(--my-purple);
 }
 
+.about-content h3 {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
 .academic-card {
     background-color: #ffffff;
     border-radius: 5px;
