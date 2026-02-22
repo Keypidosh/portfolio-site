@@ -369,7 +369,7 @@ nav ul li a.active {
     }
 }
 
-/* About section */
+/* About and Academic sections */
 .about-content {
     text-align: center;
     margin: 70px auto 0 auto;
@@ -396,6 +396,7 @@ nav ul li a.active {
     font-size: 1rem;
 }
 
+/* Academic only*/
 .academic-card {
     background-color: #ffffff;
     border-radius: 5px;
@@ -404,6 +405,12 @@ nav ul li a.active {
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
+.academic-copy-buttons { /* Make the buttons side by side */
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
 
 /* Title formatting */
 .about-title-container {

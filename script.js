@@ -96,3 +96,31 @@ for (var i = 0; i < btns.length; i++) {
         this.classList.add("filter-active");
     });
 }
+
+// Copy text by pressing button
+async function handleCopy(button) {
+    // Get the content directly from the clicked button's data attributes
+    const htmlContent = button.getAttribute('data-citation-html');
+    const plainContent = button.getAttribute('data-citation-plain');
+
+    try {
+        const data = [new ClipboardItem({
+            'text/html': new Blob([htmlContent], { type: 'text/html' }),
+            'text/plain': new Blob([plainContent], { type: 'text/plain' })
+        })];
+
+        await navigator.clipboard.write(data);
+
+        // Visual feedback
+        const originalText = button.innerText;
+        button.innerText = "Copied!";
+        button.classList.add('active'); 
+        
+        setTimeout(() => {
+            button.innerText = originalText;
+        }, 1200);
+
+    } catch (err) {
+        console.error('Copy failed', err);
+    }
+}
