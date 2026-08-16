@@ -1,0 +1,778 @@
+:root {
+    --my-purple: #583F99;
+    --my-gray: #707070;
+    --dark-purple: #261646;
+    --grain-texture: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.15' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* ===== GENERAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::selection {
+    background-color: var(--my-purple);
+    color: white;
+}
+
+/* ===== FONTS ===== */
+/* Name and headings */
+@font-face {
+    font-family: "Alegreya";
+    src: url('fonts/Alegreya-Variable.woff2') format('woff2');
+    font-display: swap;
+}
+
+/* Emphasized text */
+@font-face {
+    font-family: "AlegreyaSans";
+    src: url('fonts/AlegreyaSans-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+/* Regular text */
+@font-face {
+    font-family: "AlegreyaSans";
+    src: url('fonts/AlegreyaSans-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+/* ===== BODY AND BACKGROUNDS ===== */
+body {
+    padding-top: 50px; /* Keep this for navigator height */
+    font-family: "AlegreyaSans", sans-serif;
+    font-size: 1.15rem;
+    background-color: rgb(242, 242, 242);
+}
+
+/* Background only for specific pages */
+body[data-page="works"] {
+    background-image: url('images/bg-image.webp');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-attachment: fixed;
+}
+
+body[data-page="about"] {
+    background-image: url('images/bg-image.webp');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-attachment: scroll;
+}
+
+/* Fade in on load (JS) */
+.content {
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+}
+
+.content.active {
+    opacity: 1;
+}
+
+/* ===== HEADER AND NAVIGATION ===== */
+navigation-bar:not(:defined), /* Use the style until the component loads */
+#main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10%;
+    padding-top: 12px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    z-index: 1000;
+    height: 50px;
+}
+
+/* Grain */
+#main-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--grain-texture);
+    opacity: 0.2; 
+    z-index: -1; 
+    pointer-events: none; 
+}
+
+/* Navigation list */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+/* Navigation buttons */
+nav ul li a {
+    color: black;
+    text-decoration: none;
+    font-weight: normal;
+    transition: color 0.3s ease;
+
+    /* for the icons */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav ul li a:hover {
+    color: var(--dark-purple);
+    text-decoration: underline;
+}
+
+.nav-icon {
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+    display: block;
+}
+
+/* navigation button text animation */
+.nav-text {
+    display: inline-block;
+    transform-origin: center;
+}
+
+@keyframes wordPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+nav ul li a:hover .nav-text {
+    animation: wordPulse 0.25s ease-in-out;
+}
+
+/* Stop the animation for the active button */
+body[data-page="works"] .link-works .nav-text,
+body[data-page="about"] .link-about .nav-text,
+body[data-page="academic"] .link-academic .nav-text {
+    animation: none !important;
+}
+
+/* Check data-page in the current page and make its navigation button active*/
+[data-page="works"] .link-works,
+[data-page="about"] .link-about,
+[data-page="academic"] .link-academic {
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    color: var(--dark-purple);
+}
+
+/* Social icon styling */
+.social-icons {
+    display: flex;
+    align-items: center;
+    transform: translateY(-1px);
+}
+
+.social-icons a {
+    margin-left: 15px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.social-icons img {
+    width: 19px;
+    height: 19px;
+    vertical-align: middle;
+}
+
+.social-icons svg path {
+    transition: fill 0.2s ease;
+}
+
+.social-icons a:hover svg path {
+    fill: var(--my-purple);
+}
+
+/* ===== PORTFOLIO GRID ===== */
+#portfolio {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.filter-button-container {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+/* This one have an active state and called from JS by name */
+.filter-button {
+    cursor: pointer;
+    font-family: inherit; /* I don t know why but it does not get the font without this :/ */
+    font-size: 1rem; /* Smaller text size compared to the Primary Button */
+    margin-right: 10px;
+    padding: 5px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: var(--dark-purple);
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, padding 0.2s ease;
+}
+
+.filter-active {
+    font-weight: bold;
+    color: var(--dark-purple);
+    color: white;
+    border: none;
+    background-color: var(--dark-purple);
+    text-decoration: underline;
+    padding: 5px 35px;
+    border: 2px solid var(--dark-purple);
+}
+
+.filter-button:hover {
+    color: white;
+    background-color: var(--dark-purple);
+}
+
+.show { /* For filtered elements */
+    display: block !important;
+  }
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.portfolio-item {
+    display: none; /* Hides all the items by default so the filters would work */
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease, transform 0.5s ease;
+}
+
+.portfolio-item:hover img {
+    transition: filter 0.3s ease, transform 0.5s ease;
+    transform: scale(1.1);
+    filter: blur(8px);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .overlay {
+    opacity: 1;
+}
+
+.overlay .text h2 {
+    color: white;
+    margin-bottom: 10px;
+ 
+}
+
+.overlay .text p {
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* ===== WORK PRESENTATION PAGES ===== */
+.presentation-page {
+    margin-top: 20px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
+
+.presentation-page.horizontal {
+    flex-direction: row;
+    gap: 100px;
+}
+
+
+.presentation-item {
+    max-width: 100%;
+    height: auto;
+    padding-bottom: 20px;
+}
+
+.presentation-page-text {
+    text-align: center;
+}
+
+.presentation-page-date {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    color: var(--my-gray);
+}
+
+/* Hoqqa page */
+body[data-page="hoqqa"] {
+    background-color: #100E14;
+    background-image: url('images/hoqqa_bg.webp');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.presentation-page.hoqqa {
+    color: white;
+}
+
+.presentation-page.hoqqa p {
+    margin-bottom: 15px;
+}
+
+.hoqqa-buttons-container {
+    display: flex;
+    gap: 15px;
+    align-content:center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    flex-direction: row;
+}
+
+/* ===== ABOUT AND ACADEMIC ===== */
+.about-content {
+    text-align: center;
+    margin: 70px auto 0 auto;
+    margin-top: 60px;
+    max-width: 950px;
+    padding-left: 5%; /* For mobile scaling */
+    padding-right: 5%;
+}
+
+.about-content h1 {
+    font-size: 3.5rem;
+    font-family: "Alegreya", serif;
+    font-weight: 900;
+    color: var(--dark-purple);
+}
+
+.about-content h2 {
+    font-family: "Alegreya", serif;
+    font-weight: 800;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    color: var(--my-purple);
+}
+
+.about-content h3 {
+    font-weight: bold;
+    font-size: inherit;
+}
+
+/* ===== ACADEMIC ONLY ===== */
+.academic-copy-buttons { /* Make the buttons side by side */
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Title formatting */
+.about-title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+.about-title-container h2 {
+    font-family: "Alegreya", serif;
+    color: var(--my-purple);
+    margin: 0;
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.title-icon {
+    display: flex;
+    align-items: center;
+}
+
+.title-icon svg {
+    fill: var(--my-purple);
+}
+
+/* ===== ABOUT FORMATTING ===== */
+.about-content p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+.about-content strong {
+    font-weight: 600;
+}
+
+.about-content weak {
+    color: var(--my-gray);
+}
+
+.about-content .work-experience-item {
+    margin-bottom: 20px;
+}
+
+.about-content .education {
+    margin-top: 30px;
+}
+
+.about-mail {
+    color: black;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-weight: bold;
+}
+
+.about-mail:hover {
+    color: var(--my-purple);
+    text-decoration: none;
+}
+
+.about-contact {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.flip-card {
+    align-items: center;
+    background-color: transparent;
+    width: 150px;
+    height: 150px;
+    perspective: 1000px;
+    margin: 0 auto; /* Center horizontally */
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+
+/* Style the back side */
+.flip-card-back {
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+    transform: rotateY(180deg);
+}
+
+.primary-button {
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    margin-top: 30px;
+    padding: 5px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: black;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .primary-button:hover {
+    color: white;
+    background-color: var(--dark-purple);
+    font-weight: bold;
+  }
+
+  .primary-button:hover img {
+    filter: brightness(0) invert(1);
+}
+
+  .primary-button.disabled {
+    pointer-events: none;
+    color: var(--my-gray);
+  }
+
+  ul.skills-list li {
+    display: inline-block;
+    padding: 10px;
+  }
+
+/* ===== FOOTER ===== */
+site-footer:not(:defined),
+footer {
+    text-align: center;
+    color: var(--my-gray);
+    padding: 50px;
+    background-color: transparent;
+    line-height: 1.5;
+}
+
+.secret-details {
+    position: relative;
+    width: 100%;
+    height: 625px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.secret-details svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#secret-details-opener:not([open]) {
+    margin-bottom: 30px;
+}
+
+.secret-details-content {
+    position: relative;
+    z-index: 1;
+    color: #f6A4C8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px 0px;
+    text-align: center;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
+.secret-details-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 40px;
+}
+
+.secret-details-image-mobile {
+  display: none;
+  width: 100%;
+  height: auto;
+  margin-bottom: 40px;
+}
+
+@media (max-aspect-ratio: 4/5) {
+  .secret-details-image {
+    display: none;
+  }
+  
+  .secret-details-image-mobile {
+    display: block;
+  }
+}
+
+/* ===== RESPONSIVE/ADAPTIVE ===== */
+/* Desktop narrow (16:11) */
+@media (max-aspect-ratio: 16/10) {
+    #main-header {
+        padding: 10px 7%;
+    }
+    
+    #portfolio {
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+
+    .presentation-page {
+        width: 60% !important;
+    }
+    
+    body[data-page="works"],
+    body[data-page="about"],
+    body[data-page="hoqqa"] {
+        background-size: 140% auto;
+    }
+}
+
+/* Tablet view (4:5) */
+@media (max-aspect-ratio: 4/5) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    #portfolio {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .presentation-page {
+        width: 85% !important;
+    }
+
+    
+    body[data-page="works"],
+    body[data-page="about"],
+    body[data-page="hoqqa"] {
+        background-size: 210% auto;
+    }
+}
+
+/* Mobile view (9.5:16) */
+@media (max-aspect-ratio: 9.5/16) {
+    .name,
+    .social-icons {
+        display: none;
+    }
+
+    nav {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul {
+        justify-content: space-around;
+        padding: 0;
+        margin: 0;
+        gap: 0;
+    }
+    
+    nav ul li {
+        flex: 1;
+        text-align: center;
+    }
+
+    nav ul li a {
+        font-size: 18px;
+        padding: 0;
+        display: block;
+        /* For icons */
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    #portfolio {
+        padding-top: 30px;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .filter-button-container {
+        margin-top: 30px;
+    }
+
+    .filter-button {
+        margin-bottom:30px;
+    }
+
+    .presentation-page {
+        width: 95% !important;
+    }
+
+    .presentation-page.horizontal {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hoqqa-buttons-container {
+        gap: 0;
+        flex-direction: column;
+    }
+
+    body[data-page="works"],
+    body[data-page="about"],
+    body[data-page="hoqqa"] {
+        background-size: 270% auto;
+    }
+
+    .about-content {
+        margin-top: 30px;
+    }
+}

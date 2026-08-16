@@ -1,0 +1,64 @@
+// Navigation Bar
+class NavigationBar extends HTMLElement {
+    connectedCallback() {       
+        // /* html */ calls the pluging to highlight as html
+        this.innerHTML =  /* html */`
+            <header id="main-header">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="index.html" class="link-works">
+                                <img src="images/works-icon.webp" class="nav-icon" alt="" aria-hidden="true">
+                                <span class="nav-text">Works</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="about.html" class="link-about">
+                            <img src="images/about-icon.webp" class="nav-icon" alt="" aria-hidden="true">
+                            <span class="nav-text">About</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="academic.html" class="link-academic">
+                            <img src="images/academic-icon.webp" class="nav-icon" alt="" aria-hidden="true">
+                            <span class="nav-text">Academic</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/batuhandikmen/" target="_blank" aria-label="Linkedin profile">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19px" height="19px">
+                            <path d="M20,1.5H4c-1.3,0-2.5,1.1-2.5,2.6v16c0,1.2,1.2,2.4,2.5,2.4h16c1.4,0,2.5-1.1,2.5-2.6V4.1C22.5,2.6,21.3,1.5,20,1.5z M8,9.4V19H5V9.4C5,9.4,8,9.4,8,9.4z M5,6.8c0-0.7,0.6-1.2,1.5-1.2S8.1,6,8.1,6.8S7.4,8,6.5,8C5.6,8,5,7.4,5,6.8z M19,19h-3c0,0,0-4.7,0-5c0-1-0.5-2-1.7-2l0,0c-1.2,0-1.7,1.1-1.7,2c0,0.5,0,5,0,5H9.5V9.4h3v1.3c0,0,1-1.3,2.9-1.3c2,0,3.5,1.4,3.5,4.1L19,19L19,19z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/btdikmen/" target="_blank" aria-label="Instagram profile">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19px" height="19px">
+                            <path d="M7.7,1.5c-3.4,0-6.2,2.8-6.2,6.2v8.6c0,3.4,2.8,6.2,6.2,6.2h8.6c3.4,0,6.2-2.8,6.2-6.2V7.7c0-3.4-2.8-6.2-6.2-6.2H7.7zM18,4.9c0.6,0,1.1,0.5,1.1,1.1S18.8,7.2,18,7.2c-0.7,0-1.1-0.6-1.1-1.1S17.4,4.9,18,4.9z M12,6.4c3.1,0,5.6,2.5,5.6,5.6s-2.6,5.6-5.6,5.6S6.4,15.1,6.4,12S8.9,6.4,12,6.4z M12,8.2c-2.1,0-3.8,1.7-3.8,3.8s1.7,3.8,3.8,3.8s3.8-1.7,3.8-3.8S14.1,8.2,12,8.2z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:d.batuhan.d@gmail.com" aria-label="E-mail">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19px" height="19px">
+                            <path d="M23,5.7v0.2L12.1,12L1.2,5.8V5.7c0-1,0.9-1.7,1.9-1.7h18.5C22.2,4,23,4.8,23,5.7z"/>
+                            <path d="M12.6,13.9L23,8.2v10.1c0,1-0.9,1.7-1.9,1.7H2.9c-1,0-1.9-0.9-1.9-1.7V8.2l10.3,5.7C11.8,14.2,12.2,14.2,12.6,13.9z"/>
+                        </svg>
+                    </a>
+                </div>
+            </header>
+        `;
+    }
+}
+customElements.define('navigation-bar', NavigationBar);
+
+// Footer
+class SiteFooter extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = /* html */`
+            <footer>
+                <p>&copy; Batuhan Dikmen. All rights reserved.</p>
+                <p>d.batuhan.d@gmail.com</p>
+            </footer>
+        `;
+    }
+}
+customElements.define('site-footer', SiteFooter);

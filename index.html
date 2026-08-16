@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Batuhan Dikmen | Graphic Artist, Designer and Researcher</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+    <link rel="stylesheet" href="styles.css">
+    <!-- Scripts -->
+    <script src="script.js" defer></script>
+    <script src="components.js" defer></script>
+
+    <!-- Meta Tags -->
+    <meta name="copyright" content="&copy; 2020-2026. Batuhan Dikmen. All rights reserved.">
+    <meta name="description" content="Portfolio of Batuhan Dikmen, a graphic artist, designer and researcher focusing on video games, illustration, UI, concept art, and animation.">
+    <meta name="author" content="Batuhan Dikmen">
+    <link rel="canonical" href="https://batuhandikmen.art/">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org/",
+    "@type": "Person",
+    "name": "Batuhan Dikmen",
+    "url": "https://batuhandikmen.art/",
+    "jobTitle": ["Graphic Artist and Designer", "Researcher"],
+    "sameAs": [
+        "https://github.com/batuhandikmen",
+        "https://www.linkedin.com/in/batuhandikmen/",
+        "https://akademik.baskent.edu.tr/batuhandikmen",
+        "https://www.instagram.com/btdikmen/"
+    ]
+    }
+    </script>
+
+    <!-- Rel me -->
+    <link rel="me" href="https://github.com/batuhandikmen">
+    <link rel="me" href="https://www.linkedin.com/in/batuhandikmen/">
+    <link rel="me" href="https://www.instagram.com/btdikmen/">
+    <link rel="me" href="https://akademik.baskent.edu.tr/batuhandikmen">
+</head>
+
+<body data-page="works">
+    <!-- Navigation Bar -->
+    <navigation-bar role="banner"></navigation-bar>
+
+    <!-- Portfolio Section -->
+    <main>
+        <section id="portfolio" class="content">
+            <!-- Profile image and name -->
+            <div class="about-content">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/profile-image.webp" alt="Batuhan Dikmen profile image" width="150px" fetchpriority="high">
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="images/profile-image-2.webp" alt="Batuhan Dikmen profile image" width="150px">
+                        </div>
+                    </div>
+                </div> 
+                <h1>Batuhan Dikmen</h1>
+                <p style="font-size: 1.2rem; font-weight: normal; color: #000000; margin-top: -7px;">
+                    Graphic Artist, Designer and Researcher
+                </p>
+                <div class="about-contact" style="margin-top: -5px;">
+                    <img src="images/mail-icon.svg" class="text-icon" alt="e-mail icon">
+                    <a href="mailto:d.batuhan.d@gmail.com" class="about-mail" aria-hidden="true">d.batuhan.d@gmail.com</a> 
+                </div>
+            </div> 
+            <!-- Filter Buttons -->
+            <div id="filterButtonContainer" class="filter-button-container">
+                <button class="filter-button filter-active" onclick="filterSelection('all')"> Show all</button>
+                <button class="filter-button" onclick="filterSelection('video-game')"> Video Games (Playable)</button>
+                <!--<button class="filter-button" onclick="filterSelection('illustration')"> Illustration</button>-->
+                <button class="filter-button" onclick="filterSelection('interface')"> Interface</button>
+                <button class="filter-button" onclick="filterSelection('concept-art')"> Concept</button>
+                <button class="filter-button" onclick="filterSelection('animation')"> Animation</button>
+                <!--<button class="filter-button" onclick="filterSelection('logo-design')"> Logo</button>
+                <button class="filter-button" onclick="filterSelection('poster-design')"> Poster</button>-->
+            </div> 
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+                <!-- Work Item -->
+                <div class="portfolio-item illustration video-game animation" id="hoqqa">
+                    <a href="hoqqa.html">
+                    <img src="images/hoqqa-cover.webp" alt="Hoqqa 2D platformer game cover image" loading="eager" fetchpriority="high">
+                    <div class="overlay">
+                        <div class="text">
+                            <h2>Hoqqa</h2>
+                            <p>December, 2025</p>
+                            <p>Video Game</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <!-- Work Item -->
+                <div class="portfolio-item" id="juggling-above-hats">
+                    <a href="juggling-above-hats.html">
+                    <img src="images/juggling-above-hats-cover.webp" alt="Juggling Above Hats illustration project cover image" loading="eager">
+                    <div class="overlay">
+                        <div class="text">
+                            <h2>Juggling Above Hats</h2>
+                            <p>April, 2024</p>
+                            <p>Character and Environment Illustration</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <!-- Work Item -->
+                <div class="portfolio-item animation" id="vocational-character-portraits">
+                    <a href="vocational-character-portraits.html">
+                    <img src="images/vocational-character-portraits-cover.webp" alt="Vocational Character Portraits project cover image" loading="eager">
+                    <div class="overlay">
+                        <div class="text">
+                            <h2>Vocational Character Portraits</h2>
+                            <p>August, 2023</p>
+                            <p>Character Illustration, Animation</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <!-- Work Item -->
+                <div class="portfolio-item interface" id="game-ui-pack">
+                    <a href="game-ui-pack.html">
+                    <img src="images/game-ui-pack-cover.webp" alt="Game UI Pack project cover image" loading="eager">
+                    <div class="overlay">
+                        <div class="text">
+                            <h2>Game UI Pack</h2>
+                            <p>June, 2023</p>
+                            <p>Icons, Buttons, Hand Gestures, etc.</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <!-- Work Item -->
+                <div class="portfolio-item concept-art" id="hnb-items">
+                    <a href="hnb-items.html">
+                    <img src="images/hnb-items-cover.webp" alt="Hit and Boom Items concept art project cover image" loading="eager">
+                    <div class="overlay">
+                        <div class="text">
+                            <h2>HnB Items</h2>
+                            <p>December, 2022</p>
+                            <p>Concept Art, Prop Design, Model Sheet</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <!-- Work Item -->
+                <div class="portfolio-item concept-art" id="hnb-lootbox-concepts">
+                    <a href="hnb-lootbox.html">
+                    <img src="images/lootbox-cover.webp" alt="Hit and Boom Lootbox concept art project cover image" loading="eager">
+                    <div class="overlay">
+                        <div class="text">
+                            <h2>HnB Lootbox Concepts</h2>
+                            <p>October, 2022</p>
+                            <p>Concept Art, Model Sheet</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <!-- Work Item -->
+                <div class="portfolio-item" id="boom-dudes">
+                    <a href="boom-dudes.html">
+                    <img src="images/emote-stickers-cover.webp" alt="Hit and Boom Emote Stickers illustration project cover image" loading="lazy">
+                    <div class="overlay">
+                        <div class="text">
+                            <h2>Boom Dudes</h2>
+                            <p>November, 2022</p>
+                            <p>Character and Sticker Illustration</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <!-- Work Item -->
+                <div class="portfolio-item video-game animation interface" id="ground-digger">
+                    <a href="ground-digger.html">
+                    <img src="images/ground-digger-cover.webp" alt="Ground Digger video game project cover image" loading="lazy">
+                    <div class="overlay">
+                        <div class="text">
+                            <h2>Ground Digger</h2>
+                            <p>February, 2022</p>
+                            <p>Illustration, UI Design, Animation</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <!-- Work Item -->
+                <div class="portfolio-item animation" id="spooky-banger">
+                    <a href="spooky-banger.html">
+                    <img src="images/spooky-banger-cover.webp" alt="Spooky Banger illustration project cover image" loading="lazy">
+                    <div class="overlay">
+                        <div class="text">
+                            <h2>Spooky Banger</h2>
+                            <p>May, 2021</p>
+                            <p>Icon Design, Animation</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <!-- Work Item -->
+                <div class="portfolio-item interface" id="bil-fubo">
+                    <a href="bil-fubo.html">
+                    <img src="images/bil-fubo-cover.webp" alt="Bil Fubo video game project cover image" loading="lazy">
+                    <div class="overlay">
+                        <div class="text">
+                            <h2>Bil Fubo</h2>
+                            <p>March, 2021</p>
+                            <p>Illustration, UI Design</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <!-- Work Item -->
+                <div class="portfolio-item" id="home-of-homies">
+                    <a href="home-of-homies.html">
+                    <img src="images/home-of-homies-cover.webp" alt="Home of Homies illustration project cover image" loading="lazy">
+                    <div class="overlay">
+                        <div class="text">
+                            <h2>Home of Homies</h2>
+                            <p>January, 2020</p>
+                            <p>Background Illustration</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <!-- Work Item -->
+                <div class="portfolio-item" id="droggo-boi">
+                    <a href="droggo-boi.html">
+                    <img src="images/droggo-boi-cover.webp" alt="Droggo Boi illustration project cover image" loading="lazy">
+                    <div class="overlay">
+                        <div class="text">
+                            <h2>Droggo Boi</h2>
+                            <p>May, 2020</p>
+                            <p>Character Illustration</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <!-- Work Item -->
+                <div class="portfolio-item" id="po-panda-geek-poster">
+                    <a href="po-panda-geek-poster.html">
+                    <img src="images/po-panda-geek-poster-cover.webp" alt="Po Panda illustration project cover image" loading="lazy">
+                    <div class="overlay">
+                        <div class="text">
+                            <h2>Po Panda Geek Poster</h2>
+                            <p>May, 2019</p>
+                            <p>Poster Illustration</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <!-- Work Item -->
+                <div class="portfolio-item" id="some-ahoi-boi">
+                    <a href="some-ahoi-boi.html">
+                    <img src="images/some-ahoi-boi-cover.webp" alt="Some Ahoi Boi illustration project cover image" loading="lazy">
+                    <div class="overlay">
+                        <div class="text">
+                            <h2>Some Ahoi Boi</h2>
+                            <p>April, 2019</p>
+                            <p>Character and Environment Illustration</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <!-- Add more portfolio items here. Portfolio item must have a dedicated .html -->
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <site-footer role="contentinfo"></site-footer>
+</body>
+</html>
