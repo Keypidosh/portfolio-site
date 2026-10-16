@@ -414,14 +414,6 @@ body[data-page="hoqqa"] {
     font-size: inherit;
 }
 
-/* ===== ACADEMIC ONLY ===== */
-.academic-copy-buttons { /* Make the buttons side by side */
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-}
-
 /* Title formatting */
 .about-title-container {
     display: flex;
@@ -484,7 +476,6 @@ body[data-page="hoqqa"] {
 }
 
 .about-contact {
-    margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -579,6 +570,46 @@ body[data-page="hoqqa"] {
     display: inline-block;
     padding: 10px;
   }
+
+/* ===== ACADEMIC ONLY ===== */
+.academic-subtitle {
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: #000000;
+    margin-top: -7px;
+}
+
+.academic-stats {
+    --stats-col-gap: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: var(--stats-col-gap);
+    row-gap: 25px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.academic-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #b1b1b1;
+    padding-bottom: 8px;
+}
+
+.about-content .academic-stat-item p {
+    margin: 0;
+    line-height: 1.2;
+}
+
+.about-content .academic-stat-item .academic-stat-number {
+    font-size: 2.5rem;
+    line-height: 1.5;
+}
+
+.academic-stat-item:nth-child(4):last-child {
+    grid-column: 2;
+}
 
 /* ===== FOOTER ===== */
 site-footer:not(:defined),
@@ -676,8 +707,27 @@ footer {
     }
 }
 
-/* Tablet view (4:5) */
-@media (max-aspect-ratio: 4/5) {
+/* Tablet view (4:5) and narrow screens */
+@media (max-aspect-ratio: 4/5), (max-width: 768px) {
+    .academic-stats {
+        --stats-col-gap: 30px;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: var(--stats-col-gap);
+        row-gap: 20px;
+    }
+
+    /* When there are 3 items, center the 3rd one on 2-column mobile/tablet */
+    .academic-stat-item:nth-child(3):last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc(50% - var(--stats-col-gap) / 2);
+    }
+
+    /* When there are 4 items, keep the 4th item in natural 2x2 grid */
+    .academic-stat-item:nth-child(4):last-child {
+        grid-column: auto;
+    }
+
     .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -699,8 +749,8 @@ footer {
     }
 }
 
-/* Mobile view (9.5:16) */
-@media (max-aspect-ratio: 9.5/16) {
+/* Mobile view (9.5:16) and mobile screens */
+@media (max-aspect-ratio: 9.5/16), (max-width: 480px) {
     .name,
     .social-icons {
         display: none;
@@ -774,5 +824,11 @@ footer {
 
     .about-content {
         margin-top: 30px;
+    }
+
+    .academic-stats {
+        --stats-col-gap: 20px;
+        column-gap: var(--stats-col-gap);
+        row-gap: 15px;
     }
 }
