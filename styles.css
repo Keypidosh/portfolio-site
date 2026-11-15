@@ -41,6 +41,15 @@
     font-display: swap;
 }
 
+/* Italic text */
+@font-face {
+    font-family: "AlegreyaSans";
+    src: url('fonts/AlegreyaSans-Italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
 /* ===== BODY AND BACKGROUNDS ===== */
 body {
     padding-top: 50px; /* Keep this for navigator height */
@@ -360,7 +369,7 @@ body[data-page="academic"] .link-academic .nav-text {
 
 /* Hoqqa page */
 body[data-page="hoqqa"] {
-    background-color: #100E14;
+    background-color: #0F0D13;
     background-image: url('images/hoqqa_bg.webp');
     background-position: top center;
     background-repeat: no-repeat;
